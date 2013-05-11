@@ -88,4 +88,15 @@
 2"
          10
          80)
-        => "1 2"))
+        => "1 2")
+  (fact (rearrange-string-into-lines
+         "1 1234567890"
+         12
+         20)
+        => "1
+            1234567890")
+  (fact (rearrange-string-into-lines
+         "1234567890"
+         12
+         20)
+        => "1234567890"))

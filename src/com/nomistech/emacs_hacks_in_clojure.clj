@@ -27,18 +27,21 @@
         indexes-sofar
         (let [offset-of-next-space
               (position #{\space} (subs string current-index))
-              ;;
-              long-line? (and offset-of-next-space
-                              (> offset-of-next-space line-length))
-              ;;
+              
               offset-for-newline
-              (if long-line?
-                offset-of-next-space
-                (last-index-of-char-in-string \space
-                              (subs string
-                                    current-index
-                                    (inc ; to find a space after line-length
-                                     (+ current-index line-length)))))]
+              (cond (nil? offset-of-next-space) ; last line?
+                    nil
+                    
+                    (> offset-of-next-space line-length) ; long line?
+                    offset-of-next-space
+
+                    :default
+                    (last-index-of-char-in-string
+                     \space
+                     (subs string
+                           current-index
+                           (inc    ; to find a space after line-length
+                            (+ current-index line-length)))))]
           (if (nil? offset-for-newline)
             indexes-sofar
             (let [index (+ offset-for-newline current-index)]
