@@ -1,6 +1,6 @@
 (ns com.nomistech.emacs-hacks-in-clojure
-  (:require [com.nomistech.clojure-utils :refer [position
-                                                 last-index-of-char-in-string]]))
+  (:require [com.nomistech.clj-utils :refer [position
+                                             last-index-of-char-in-string]]))
 
 (defn ^:private chop-string-at-indexes [string indexes] ; **** can you do this with a reduce?
   (let [string-length (count string)]
