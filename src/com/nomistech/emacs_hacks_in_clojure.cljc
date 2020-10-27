@@ -1,6 +1,5 @@
 (ns com.nomistech.emacs-hacks-in-clojure
-  (:require [com.nomistech.clj-utils :refer [position
-                                             last-index-of-char-in-string]]))
+  (:require [com.nomistech.clj-utils :as nu]))
 
 (defn ^:private chop-string-at-indexes [string indexes] ; **** can you do this with a reduce?
   (let [string-length (count string)]
@@ -26,17 +25,17 @@
       (if (>= current-index (- string-length line-length))
         indexes-sofar
         (let [offset-of-next-space
-              (position #{\space} (subs string current-index))
-              
+              (nu/position #{\space} (subs string current-index))
+
               offset-for-newline
               (cond (nil? offset-of-next-space) ; last line?
                     nil
-                    
+
                     (> offset-of-next-space line-length) ; long line?
                     offset-of-next-space
 
                     :default
-                    (last-index-of-char-in-string
+                    (nu/last-index-of-char-in-string
                      \space
                      (subs string
                            current-index
