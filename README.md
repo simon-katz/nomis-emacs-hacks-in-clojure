@@ -9,6 +9,6 @@ Emacs. Do cool things without learning lots about Emacs Lisp.
 
 ## License
 
-Copyright © 2013 Simon Katz
+Copyright © 2013-2020 Simon Katz
 
 Distributed under the Eclipse Public License, the same as Clojure.
