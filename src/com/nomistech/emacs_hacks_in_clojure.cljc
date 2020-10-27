@@ -1,5 +1,7 @@
 (ns com.nomistech.emacs-hacks-in-clojure
-  (:require [com.nomistech.clj-utils :as nu]))
+  (:require
+   [clojure.string :as str]
+   [com.nomistech.clj-utils :as nu]))
 
 (defn ^:private chop-string-at-indexes [string indexes] ; **** can you do this with a reduce?
   (let [string-length (count string)]
@@ -34,7 +36,7 @@
                     (> offset-of-next-space line-length) ; long line?
                     offset-of-next-space
 
-                    :default
+                    :else
                     (nu/last-index-of-char-in-string
                      \space
                      (subs string
@@ -48,7 +50,7 @@
                      (conj indexes-sofar index)))))))))
 
 (defn rearrange-string-into-lines [string left-margin right-margin]
-  (let [single-line (clojure.string/replace string #"[\n ]+" " ")
+  (let [single-line (str/replace string #"[\n ]+" " ")
         newline-and-left-padding (apply str
                                         (concat "\n"
                                                 (repeat (dec left-margin) " ")))
