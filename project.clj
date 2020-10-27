@@ -1,4 +1,4 @@
-(defproject com.nomistech/emacs-hacks-in-clojure "0.1.0"
+(defproject com.nomistech/emacs-hacks-in-clojure "0.2.0-SNAPSHOT"
   :description "Nomistech utilities in Clojure for use in Emacs across a REPL connection."
   :url "None"
   :license {:name "Eclipse Public License"
