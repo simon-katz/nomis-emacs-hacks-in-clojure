@@ -3,18 +3,10 @@
    [clojure.string :as str]
    [com.nomistech.clj-utils :as nu]))
 
-(defn ^:private chop-string-at-indexes [string indexes] ; **** can you do this with a reduce?
-  (let [string-length (count string)]
-    (loop [prev-index 0
-           indexes indexes
-           sofar []]
-      (if (or (empty? indexes)
-              (> (first indexes) string-length))
-        (conj sofar (subs string prev-index))
-        (let [next-index (first indexes)]
-          (recur next-index
-                 (rest indexes)
-                 (conj sofar (subs string prev-index next-index))))))))
+(defn ^:private chop-string-at-indexes [s indexes]
+  (map (fn [start end] (subs s start end))
+       (cons 0 indexes)
+       (concat indexes [(count s)])))
 
 (defn ^:private indexes-to-split-at [string line-length]
   ;; Terminology:

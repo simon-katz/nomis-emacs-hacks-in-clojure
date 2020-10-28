@@ -6,9 +6,9 @@
   "`should-chop-string-at-indexes` tests"
   (let [chop-string-at-indexes
         #'com.nomistech.emacs-hacks-in-clojure/chop-string-at-indexes]
-    (fact (chop-string-at-indexes "1234567890"
-                                  [3 5])
-      => ["123" "45" "67890"])))
+    (chop-string-at-indexes "1234567890"
+                            [3 5]))
+  => ["123" "45" "67890"])
 
 (fact
   "`should-rearrange-string-into-lines` tests"
