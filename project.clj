@@ -3,8 +3,7 @@
   :url "None"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.10.1"]
-                 [com.nomistech/clj-utils "0.14.0"]]
+  :dependencies [[org.clojure/clojure "1.10.1"]]
   :profiles
   {:dev {:source-paths ["dev"]
          :dependencies [[midje "1.9.9"]]
